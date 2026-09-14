@@ -28,12 +28,11 @@ public class ReshadeSidebarPanelView extends FrameLayout {
             "Retro CRT",
             "Upscale Sharp",
             "Pixel Clean",
-            "Anime Edge",
             "Swap R/B"
     };
 
     private static final int[] EFFECT_MODES = {
-            0, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 };
+            0, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 
     private boolean wired;
     private int selectedEffect;
