@@ -100,13 +100,13 @@ def signingKeyAlias = providers.gradleProperty("WINLATOR_KEY_ALIAS")
         .getOrElse("sign_key")
 
 android {
-    namespace 'com.winlator.cmod'
+    namespace 'com.ludashi.benchmark'
     // Keep compileSdk from your current config. If you want to match Termux-X11, you could set to 34.
     compileSdk 35
     buildToolsVersion "35.0.0"
 
     defaultConfig {
-        applicationId "com.winlator.cmod"
+        applicationId "com.ludashi.benchmark"
         minSdkVersion 26
         // We’re preserving Winlator’s request to keep targetSdkVersion at 28
         targetSdkVersion 28
