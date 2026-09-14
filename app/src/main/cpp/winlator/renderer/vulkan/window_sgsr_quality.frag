@@ -102,6 +102,13 @@ void applyPostFX(inout vec3 rgb, vec2 uv) {
     else if (pc.effectId == 2) rgb = applyCRT(rgb, uv);
     else if (pc.effectId == 3) rgb = applyHDR(rgb, uv);
     else if (pc.effectId == 4) rgb = applyNatural(rgb);
+        else if (pc.effectId == 21) rgb = applySwapRB(uv);
+}
+
+
+vec3 applySwapRB(vec2 uv) {
+    vec3 c = texture(texSampler, uv).rgb;
+    return vec3(c.b, c.g, c.r);
 }
 
 void main() {
