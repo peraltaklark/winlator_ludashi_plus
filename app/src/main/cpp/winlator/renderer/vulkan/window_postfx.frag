@@ -327,8 +327,11 @@ vec3 applyAnimeEdge(vec2 uv, float strength) {
 }
 
 
-vec3 applySwapRB(vec3 rgb) {
-    return vec3(rgb.b, rgb.g, rgb.r);
+
+
+vec3 applySwapRB(vec2 uv) {
+    vec3 c = texture(texSampler, uv).rgb;
+    return vec3(c.b, c.g, c.r);
 }
 
 void main() {
@@ -353,8 +356,7 @@ void main() {
     else if (pc.effectId == 17) rgb = applyRetroCRTProfile       (uv, pc.sharpness);
     else if (pc.effectId == 18) rgb = applyUpscaleSharp          (uv, pc.sharpness);
     else if (pc.effectId == 19) rgb = applyPixelClean            (uv, pc.sharpness);
-    else if (pc.effectId == 20) rgb = applyAnimeEdge             (uv, pc.sharpness);
-    else if (pc.effectId == 21) rgb = applySwapRB(rgb);
+    else if (pc.effectId == 20) rgb = applySwapRB(uv);
     else                        rgb = texture(texSampler, uv).rgb;
     outColor = vec4(rgb, 1.0);
 }
