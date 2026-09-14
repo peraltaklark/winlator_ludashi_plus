@@ -97,18 +97,17 @@ vec3 applyNatural(vec3 c) {
     return clamp(vec3(pow(t.r, 1.12), t.g * 1.2, t.b * 1.2) * toRGB, 0.0, 1.0);
 }
 
+
+vec3 applySwapRB(vec3 rgb) {
+    return vec3(rgb.b, rgb.g, rgb.r);
+}
+
 void applyPostFX(inout vec3 rgb, vec2 uv) {
     if (pc.effectId == 1) rgb = applyDLS(rgb, uv, pc.sharpness);
     else if (pc.effectId == 2) rgb = applyCRT(rgb, uv);
     else if (pc.effectId == 3) rgb = applyHDR(rgb, uv);
     else if (pc.effectId == 4) rgb = applyNatural(rgb);
-        else if (pc.effectId == 21) rgb = applySwapRB(uv);
-}
-
-
-vec3 applySwapRB(vec2 uv) {
-    vec3 c = texture(texSampler, uv).rgb;
-    return vec3(c.b, c.g, c.r);
+    else if (pc.effectId == 21) rgb = applySwapRB(rgb);
 }
 
 void main() {
